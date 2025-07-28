@@ -62,7 +62,7 @@ function converter(number) {
         finalString += prefix + converter(100);
       } else {
         finalString +=
-          prefix + converter(100).slice(0, -1) + converter(number % 100);
+          prefix + converter(100).slice(0, -1) + " " + converter(number % 100);
       }
     } else if (number >= 1000 && number < 1000000) {
       if (number / 100 == 10) {
@@ -70,10 +70,10 @@ function converter(number) {
           converter(number / 100).slice(0, -1) + converter(number / 10);
       } else {
         if (number % 1000 == 0) {
-          finalString += converter(Math.floor(number / 1000)) + converter(1000);
+          finalString += converter(Math.floor(number / 1000)) +" " + converter(1000);
         } else {
           finalString +=
-            converter(number - (number % 1000)).slice(0, -1) +
+            converter(number - (number % 1000)).slice(0, -1) +" " +
             converter(number % 1000);
         }
       }
@@ -89,7 +89,7 @@ function converter(number) {
       } else {
         finalString +=
           prefix +
-          converter(1000000).slice(0, -1) +
+          converter(1000000).slice(0, -1) +" " +
           converter(number % 1000000);
       }
     } else if (number >= 1000000000 && number < 1000000000000) {
@@ -104,7 +104,7 @@ function converter(number) {
       } else {
         finalString +=
           prefix +
-          converter(1000000000).slice(0, -1) +
+          converter(1000000000).slice(0, -1) +" " +
           converter(number % 1000000000);
       }
     }
@@ -126,10 +126,13 @@ function convertNumberToString() {
   } else {
     resultDiv.textContent = "Please enter a valid number.";
   }
-
+}
   // for Clear Text
+  document.addEventListener("DOMContentLoaded", function () {
+  const numberInput = document.getElementById("numberInput");
+  const resultDiv = document.getElementById("result");
+
   numberInput.addEventListener("input", function () {
-    const resultDiv = document.getElementById("result");
     resultDiv.textContent = "";
   });
-}
+});
