@@ -124,7 +124,7 @@ function convertNumberToString() {
     const finalString = converter(number);
     resultDiv.textContent = finalString;
   } else {
-    resultDiv.textContent = "Please enter a valid number.";
+    resultDiv.textContent = "შეიყვანეთ სწორად რიცხვი.";
   }
 }
   // for Clear Text
